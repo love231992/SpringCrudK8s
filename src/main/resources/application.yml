@@ -1,0 +1,16 @@
+spring:
+  datasource:
+#    url: jdbc:mysql://localhost/3306?createDatabaseIfNotExist=true&useSSL=false
+    url: jdbc:mysql://${DB_HOST}/${DB_NAME}?useSSL=false
+    username: ${DB_USERNAME}
+#    username: root
+    password: ${DB_PASSWORD}
+#    password: Pragra@sql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect

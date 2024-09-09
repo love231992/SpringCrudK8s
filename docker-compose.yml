@@ -1,0 +1,21 @@
+version: "1.0"
+
+services:
+  app:
+    image: demodocker.jar
+    ports:
+      - 9090:8080
+    environment:
+        SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/DemoUser?createDatabaseIfNotExist=true
+        SPRING_DATASOURCE_USERNAME: root
+        SPRING_DATASOURCE_PASSWORD: Prgar@sql
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      DATABASE_HOST: docker-mysql
+      DATABASE_PORT: 3306
+      MYSQL_ROOT_PASSWORD: Prgar@sql
+      MYSQL_DATABASE: DemoUser
